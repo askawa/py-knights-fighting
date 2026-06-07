@@ -1,7 +1,7 @@
 from app.contestants import KNIGHTS
 
 
-def battle(knightsConfig):
+def battle(knightsConfig: dict) -> dict:
     # BATTLE PREPARATIONS:
     knights_keys = []
     for knight in knightsConfig:
@@ -13,8 +13,8 @@ def battle(knightsConfig):
         knight = knightsConfig.get(key)
         # apply armour
         knight["protection"] = 0
-        for a in knight["armour"]:
-            knight["protection"] += a["protection"]
+        for arm in knight["armour"]:
+            knight["protection"] += arm["protection"]
         # apply weapon
         knight["power"] += knight["weapon"]["power"]
         # apply potion if exist
