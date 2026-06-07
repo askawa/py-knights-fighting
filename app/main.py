@@ -1,6 +1,3 @@
-from app.contestants import KNIGHTS
-
-
 def battle(knights_config: dict) -> dict:
     # BATTLE PREPARATIONS:
     knights_keys = []
@@ -72,7 +69,7 @@ def battle(knights_config: dict) -> dict:
 
 def check_if_someone_fell(
     knights_keys: list, knights: dict, number_of_battle: int
-):
+) -> None:
     if number_of_battle == 1:
         if knights[knights_keys[0]]["hp"] <= 0:
             knights[knights_keys[0]]["hp"] = 0
