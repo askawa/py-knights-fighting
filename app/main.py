@@ -44,11 +44,9 @@ def battle(knights_config: dict) -> dict:
     )
 
     # check if someone fell in battle
-    if knights[knights_keys[0]]["hp"] <= 0:
-        knights[knights_keys[0]]["hp"] = 0
-
-    if knights[knights_keys[2]]["hp"] <= 0:
-        knights[knights_keys[2]]["hp"] = 0
+    check_if_someone_fell(
+        knights_keys=knights_keys, knights=knights, number_of_battle=1
+    )
 
     # 2 Arthur vs Red Knight:
     knights[knights_keys[1]]["hp"] -= (
@@ -61,11 +59,9 @@ def battle(knights_config: dict) -> dict:
     )
 
     # check if someone fell in battle
-    if knights[knights_keys[1]]["hp"] <= 0:
-        knights[knights_keys[1]]["hp"] = 0
-
-    if knights[knights_keys[3]]["hp"] <= 0:
-        knights[knights_keys[3]]["hp"] = 0
+    check_if_someone_fell(
+        knights_keys=knights_keys, knights=knights, number_of_battle=2
+    )
 
     # Return battle results:
     return {
@@ -74,4 +70,16 @@ def battle(knights_config: dict) -> dict:
     }
 
 
-print(battle(KNIGHTS))
+def check_if_someone_fell(
+    knights_keys: list, knights: dict, number_of_battle: int
+):
+    if number_of_battle == 1:
+        if knights[knights_keys[0]]["hp"] <= 0:
+            knights[knights_keys[0]]["hp"] = 0
+        if knights[knights_keys[2]]["hp"] <= 0:
+            knights[knights_keys[2]]["hp"] = 0
+    else:
+        if knights[knights_keys[1]]["hp"] <= 0:
+            knights[knights_keys[1]]["hp"] = 0
+        if knights[knights_keys[3]]["hp"] <= 0:
+            knights[knights_keys[3]]["hp"] = 0
