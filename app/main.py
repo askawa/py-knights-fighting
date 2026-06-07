@@ -1,16 +1,16 @@
 from app.contestants import KNIGHTS
 
 
-def battle(knightsConfig: dict) -> dict:
+def battle(knights_config: dict) -> dict:
     # BATTLE PREPARATIONS:
     knights_keys = []
-    for knight in knightsConfig:
+    for knight in knights_config:
         knights_keys.append(knight)
     # For declared knights
     knights = {}
     for key in knights_keys:
         # Declare knight
-        knight = knightsConfig.get(key)
+        knight = knights_config.get(key)
         # apply armour
         knight["protection"] = 0
         for arm in knight["armour"]:
